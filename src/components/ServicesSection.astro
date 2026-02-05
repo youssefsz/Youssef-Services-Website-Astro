@@ -1,0 +1,111 @@
+---
+import ServiceCard from "./ServiceCard.astro";
+
+const services = [
+    {
+        title: "Web Applications",
+        description:
+            "Full-stack web platforms built with modern frameworks. Responsive, fast, and scalable solutions for your business needs.",
+        category: "Development",
+        icon: "code",
+    },
+    {
+        title: "Mobile Apps",
+        description:
+            "Native and cross-platform mobile applications for iOS and Android. Seamless user experiences on any device.",
+        category: "Mobile",
+        icon: "mobile",
+    },
+    {
+        title: "API Development",
+        description:
+            "Robust RESTful and GraphQL APIs. Secure, documented, and built for high performance and scalability.",
+        category: "Backend",
+        icon: "api",
+    },
+    {
+        title: "AI Integration",
+        description:
+            "Custom AI-powered solutions including chatbots, automation, and machine learning integrations.",
+        category: "AI / ML",
+        icon: "ai",
+    },
+    {
+        title: "Automation Tools",
+        description:
+            "Streamline your workflows with custom automation scripts, bots, and integration pipelines.",
+        category: "Automation",
+        icon: "automation",
+    },
+    {
+        title: "Cloud Solutions",
+        description:
+            "Cloud architecture, deployment, and DevOps services. AWS, GCP, and Azure expertise.",
+        category: "Infrastructure",
+        icon: "cloud",
+    },
+];
+---
+
+<section class="py-32 relative" id="services">
+    <!-- Section Background -->
+    <div class="absolute inset-0 grid-bg opacity-30"></div>
+
+    <div class="container-main relative z-10">
+        <!-- Section Header - Centered -->
+        <div class="text-center mb-20">
+            <div class="number-display mb-4">// 01</div>
+            <h2 class="display-lg mb-6">
+                <span class="block">What I</span>
+                <span class="text-outline">Build</span>
+            </h2>
+            <p class="text-muted text-lg max-w-2xl mx-auto">
+                End-to-end software solutions designed to solve real problems
+                and drive business growth.
+            </p>
+        </div>
+
+        <!-- Services Grid -->
+        <div
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-white/5"
+        >
+            {
+                services.map((service, index) => (
+                    <ServiceCard
+                        title={service.title}
+                        description={service.description}
+                        category={service.category}
+                        icon={service.icon}
+                        index={index}
+                    />
+                ))
+            }
+        </div>
+
+        <!-- Bottom CTA -->
+        <div
+            class="mt-16 pt-16 border-t border-white/5 flex flex-col items-center text-center gap-6"
+        >
+            <p class="text-muted">
+                Don't see what you need? <span class="text-white"
+                    >I build custom solutions.</span
+                >
+            </p>
+            <a href="#contact" class="btn-secondary" id="services-cta">
+                <span>Discuss Your Project</span>
+                <svg
+                    class="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                >
+                    <path
+                        stroke-linecap="square"
+                        stroke-linejoin="miter"
+                        stroke-width="2"
+                        d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                </svg>
+            </a>
+        </div>
+    </div>
+</section>

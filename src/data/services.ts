@@ -2,63 +2,39 @@
  * Services Data - Single source of truth for all services
  * Used by both the homepage preview and the full services page
  */
+import type { ImageMetadata } from 'astro';
+
+// Import service images for Astro optimization
+import invoxImage from '../assets/services/invox.png';
+import pdfImage from '../assets/services/pdf.png';
 
 export interface Service {
     title: string;
     description: string;
     category: string;
-    icon: string;
+    image: ImageMetadata;
+    link?: string;
     slug?: string;
 }
 
 export const services: Service[] = [
     {
-        title: "Web Applications",
+        title: "Invox",
         description:
-            "Full-stack web platforms built with modern frameworks. Responsive, fast, and scalable solutions for your business needs.",
-        category: "Development",
-        icon: "code",
-        slug: "web-applications",
+            "A mobile invoicing app for freelancers and small businesses. Create professional invoices, manage clients, and keep your data backed up in the cloud securely.",
+        category: "Mobile App",
+        image: invoxImage,
+        link: "https://youssef.tn/invox/",
+        slug: "invox",
     },
     {
-        title: "Mobile Apps",
+        title: "PDF Tools",
         description:
-            "Native and cross-platform mobile applications for iOS and Android. Seamless user experiences on any device.",
-        category: "Mobile",
-        icon: "mobile",
-        slug: "mobile-apps",
-    },
-    {
-        title: "API Development",
-        description:
-            "Robust RESTful and GraphQL APIs. Secure, documented, and built for high performance and scalability.",
-        category: "Backend",
-        icon: "api",
-        slug: "api-development",
-    },
-    {
-        title: "AI Integration",
-        description:
-            "Custom AI-powered solutions including chatbots, automation, and machine learning integrations.",
-        category: "AI / ML",
-        icon: "ai",
-        slug: "ai-integration",
-    },
-    {
-        title: "Automation Tools",
-        description:
-            "Streamline your workflows with custom automation scripts, bots, and integration pipelines.",
-        category: "Automation",
-        icon: "automation",
-        slug: "automation-tools",
-    },
-    {
-        title: "Cloud Solutions",
-        description:
-            "Cloud architecture, deployment, and DevOps services. AWS, GCP, and Azure expertise.",
-        category: "Infrastructure",
-        icon: "cloud",
-        slug: "cloud-solutions",
+            "Free online PDF tools to convert, compress, and edit your PDF files. Convert PDFs to images, extract text, merge documents, and more — fast, secure, and completely free.",
+        category: "Web Platform",
+        image: pdfImage,
+        link: "https://pdf-tools.youssef.tn/",
+        slug: "pdf-tools",
     },
 ];
 

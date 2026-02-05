@@ -1,103 +1,230 @@
 ---
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+
 interface Props {
     title: string;
     description: string;
     category: string;
-    icon?: string;
+    image: ImageMetadata;
+    link?: string;
     index?: number;
 }
 
-const { title, description, category, icon = "code", index = 0 } = Astro.props;
-
-const icons: Record<string, string> = {
-    code: `<path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>`,
-    mobile: `<path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/>`,
-    api: `<path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>`,
-    ai: `<path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>`,
-    automation: `<path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>`,
-    cloud: `<path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"/>`,
-};
-
-const iconPath = icons[icon] || icons.code;
+const { title, description, category, image, link, index = 0 } = Astro.props;
 ---
 
 <article class="service-card group" style={`animation-delay: ${index * 0.1}s`}>
-    <!-- Index Number -->
-    <div class="number-display mb-6">
-        {String(index + 1).padStart(2, "0")}
+    <!-- Image Container -->
+    <div class="image-container">
+        <Image src={image} alt={title} class="service-image" />
+        <div class="image-overlay"></div>
     </div>
 
-    <!-- Icon -->
-    <div
-        class="w-12 h-12 border border-white/10 flex items-center justify-center mb-6 group-hover:border-accent transition-colors"
-    >
-        <svg
-            class="w-6 h-6 text-white group-hover:text-accent transition-colors"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            set:html={iconPath}
-        />
-    </div>
-
-    <!-- Category Tag -->
-    <div class="category-tag mb-4">
-        {category}
-    </div>
-
-    <!-- Title -->
-    <h3
-        class="font-display font-bold text-xl uppercase tracking-wide mb-4 group-hover:text-accent transition-colors"
-    >
-        {title}
-    </h3>
-
-    <!-- Description -->
-    <p class="text-muted text-sm leading-relaxed mb-6">
-        {description}
-    </p>
-
-    <!-- Learn More Link -->
-    <a
-        href="#contact"
-        class="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-muted group-hover:text-accent transition-colors"
-    >
-        <span>Learn More</span>
-        <svg
-            class="w-4 h-4 transform group-hover:translate-x-1 transition-transform"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-        >
-            <path
-                stroke-linecap="square"
-                stroke-linejoin="miter"
-                stroke-width="2"
-                d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-        </svg>
-    </a>
-
-    <!-- Hover Glow Effect -->
-    <div
-        class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"
-    >
-        <div
-            class="absolute -top-px -left-px -right-px -bottom-px border border-accent/20"
-        >
+    <!-- Content -->
+    <div class="card-content">
+        <!-- Category Tag -->
+        <div class="category-tag">
+            {category}
         </div>
+
+        <!-- Title -->
+        <h3 class="card-title">
+            {title}
+        </h3>
+
+        <!-- Description -->
+        <p class="card-description">
+            {description}
+        </p>
+
+        <!-- Action Link -->
+        {
+            link ? (
+                <a
+                    href={link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="card-link"
+                >
+                    <span>View Project</span>
+                    <svg
+                        class="link-arrow"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                    >
+                        <path
+                            stroke-linecap="square"
+                            stroke-linejoin="miter"
+                            stroke-width="2"
+                            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                        />
+                    </svg>
+                </a>
+            ) : (
+                <a href="#contact" class="card-link">
+                    <span>Learn More</span>
+                    <svg
+                        class="link-arrow"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                    >
+                        <path
+                            stroke-linecap="square"
+                            stroke-linejoin="miter"
+                            stroke-width="2"
+                            d="M17 8l4 4m0 0l-4 4m4-4H3"
+                        />
+                    </svg>
+                </a>
+            )
+        }
     </div>
 </article>
 
 <style>
-    .font-display {
-        font-family: var(--font-display);
+    .service-card {
+        position: relative;
+        background: linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.03) 0%,
+            rgba(255, 255, 255, 0.01) 100%
+        );
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        overflow: hidden;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        display: flex;
+        flex-direction: column;
     }
 
-    .text-accent {
+    .service-card:hover {
+        background: linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.05) 0%,
+            rgba(255, 255, 255, 0.02) 100%
+        );
+        border-color: rgba(255, 255, 255, 0.12);
+        transform: translateY(-4px);
+    }
+
+    /* Image Container */
+    .image-container {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 16 / 10;
+        overflow: hidden;
+        background: linear-gradient(
+            135deg,
+            rgba(0, 0, 0, 0.4) 0%,
+            rgba(0, 0, 0, 0.2) 100%
+        );
+    }
+
+    .service-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .service-card:hover .service-image {
+        transform: scale(1.05);
+    }
+
+    .image-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+            to top,
+            rgba(0, 0, 0, 0.6) 0%,
+            rgba(0, 0, 0, 0) 60%
+        );
+        pointer-events: none;
+    }
+
+    /* Card Content */
+    .card-content {
+        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+    }
+
+    .category-tag {
+        display: inline-block;
+        font-size: 0.65rem;
+        font-weight: 500;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--accent);
+        background: rgba(255, 255, 255, 0.05);
+        padding: 0.35rem 0.75rem;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        width: fit-content;
+        margin-bottom: 1rem;
+    }
+
+    .card-title {
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: 1.5rem;
+        letter-spacing: -0.02em;
+        color: white;
+        margin-bottom: 0.75rem;
+        transition: color 0.3s ease;
+    }
+
+    .service-card:hover .card-title {
         color: var(--accent);
     }
 
-    .border-accent {
-        border-color: var(--accent);
+    .card-description {
+        font-size: 0.9rem;
+        line-height: 1.7;
+        color: var(--text-muted);
+        margin-bottom: 1.5rem;
+        flex: 1;
+    }
+
+    /* Action Link */
+    .card-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.75rem;
+        font-weight: 500;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+        transition: color 0.3s ease;
+        text-decoration: none;
+    }
+
+    .card-link:hover {
+        color: var(--accent);
+    }
+
+    .link-arrow {
+        width: 1rem;
+        height: 1rem;
+        transition: transform 0.3s ease;
+    }
+
+    .service-card:hover .link-arrow {
+        transform: translate(4px, -2px);
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .card-content {
+            padding: 1.25rem;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+        }
     }
 </style>

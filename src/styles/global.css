@@ -1,3 +1,6 @@
+/* Custom Fonts - Modern & Bold (must be first) */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -7,9 +10,6 @@
    ============================================ */
 
 @custom-variant dark (&:is(.dark *));
-
-/* Custom Fonts - Modern & Bold */
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
 @theme inline {
   /* Sharp Corners System */
@@ -170,7 +170,7 @@ html {
   /* Display Headline - Massive */
   .display-xl {
     font-family: var(--font-display);
-    font-size: clamp(3rem, 12vw, 10rem);
+    font-size: clamp(4rem, 15vw, 10rem);
     font-weight: 700;
     line-height: 0.9;
     letter-spacing: -0.03em;
@@ -179,7 +179,7 @@ html {
 
   .display-lg {
     font-family: var(--font-display);
-    font-size: clamp(2rem, 8vw, 6rem);
+    font-size: clamp(3rem, 10vw, 6rem);
     font-weight: 700;
     line-height: 0.95;
     letter-spacing: -0.02em;
@@ -188,7 +188,7 @@ html {
 
   .display-md {
     font-family: var(--font-display);
-    font-size: clamp(1.5rem, 4vw, 3rem);
+    font-size: clamp(2rem, 5vw, 3rem);
     font-weight: 600;
     line-height: 1;
     letter-spacing: -0.02em;
@@ -204,6 +204,36 @@ html {
   .text-outline-thick {
     -webkit-text-stroke: 2px var(--foreground);
     -webkit-text-fill-color: transparent;
+  }
+
+  /* Text Outline with Hover Effect - Transitions from outline to filled accent */
+  .text-outline-hover {
+    position: relative;
+    display: inline-block;
+    cursor: default;
+  }
+
+  .text-outline-hover .outline-text {
+    -webkit-text-stroke: 1px var(--foreground);
+    -webkit-text-fill-color: transparent;
+    transition: opacity 0.4s ease;
+  }
+
+  .text-outline-hover .filled-text {
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--accent);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+
+  .text-outline-hover:hover .outline-text {
+    opacity: 0;
+  }
+
+  .text-outline-hover:hover .filled-text {
+    opacity: 1;
   }
 
   /* Button Primary */
@@ -283,26 +313,12 @@ html {
     overflow: hidden;
   }
 
-  .service-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background-color: transparent;
-    transition: background-color 0.3s ease;
-  }
-
   .service-card:hover {
     border-color: var(--border-hover);
     transform: translateY(-4px);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
   }
 
-  .service-card:hover::before {
-    background-color: var(--accent);
-  }
 
   /* Input Dark */
   .input-dark {

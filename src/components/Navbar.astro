@@ -1,5 +1,6 @@
 ---
 // Navbar Component - Clean minimal navigation
+import Logo from "./Logo.astro";
 ---
 
 <nav
@@ -8,13 +9,13 @@
     <div class="container-main">
         <div class="flex items-center justify-between h-20">
             <!-- Logo -->
-            <a href="/" class="flex items-center gap-3 group" id="nav-logo">
-                <div class="w-2 h-2 bg-accent"></div>
-                <span
-                    class="font-display font-bold text-sm uppercase tracking-widest"
-                >
-                    Youssef Dhibi
-                </span>
+            <a
+                href="/"
+                class="flex items-center gap-2 group"
+                id="nav-logo"
+                aria-label="Home"
+            >
+                <Logo />
             </a>
 
             <!-- Navigation Links - Desktop -->

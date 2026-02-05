@@ -6,13 +6,11 @@ const currentYear = new Date().getFullYear();
     <div class="container-main">
         <!-- Centered Large Name with Hover Effect -->
         <div class="text-center mb-12">
-            <h2
-                class="display-xl inline-block footer-name group cursor-default"
-            >
-                <!-- First name with smooth transition using layered text -->
-                <span class="name-wrapper">
-                    <span class="name-outline">Youssef</span>
-                    <span class="name-filled" aria-hidden="true">Youssef</span>
+            <h2 class="display-xl inline-block footer-name">
+                <!-- First name with smooth transition using global hover class -->
+                <span class="text-outline-hover">
+                    <span class="outline-text">Youssef</span>
+                    <span class="filled-text" aria-hidden="true">Youssef</span>
                 </span>
                 <span class="block">Dhibi</span>
             </h2>
@@ -122,38 +120,6 @@ const currentYear = new Date().getFullYear();
 <style>
     .footer-name {
         font-family: var(--font-display);
-    }
-
-    /* Wrapper for layered text effect */
-    .name-wrapper {
-        position: relative;
-        display: inline-block;
-    }
-
-    /* Outline version - visible by default */
-    .name-outline {
-        -webkit-text-stroke: 1px var(--foreground);
-        -webkit-text-fill-color: transparent;
-        transition: opacity 0.4s ease;
-    }
-
-    /* Filled version - hidden by default, positioned on top */
-    .name-filled {
-        position: absolute;
-        left: 0;
-        top: 0;
-        color: var(--accent);
-        opacity: 0;
-        transition: opacity 0.4s ease;
-    }
-
-    /* On hover: fade out outline, fade in filled */
-    .group:hover .name-outline {
-        opacity: 0;
-    }
-
-    .group:hover .name-filled {
-        opacity: 1;
     }
 
     .text-accent {

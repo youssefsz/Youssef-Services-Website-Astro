@@ -1,5 +1,6 @@
 ---
 // Hero Section - Bold futuristic hero with image
+import { Image } from "astro:assets";
 const profileImage = "https://youssef.tn/ysf.webp";
 ---
 
@@ -15,9 +16,13 @@ const profileImage = "https://youssef.tn/ysf.webp";
             class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center"
         >
             <!-- Left Column - Content -->
-            <div class="stagger-children order-2 lg:order-1">
+            <div
+                class="stagger-children order-2 lg:order-1 text-center lg:text-left flex flex-col items-center lg:items-start"
+            >
                 <!-- Status Badge -->
-                <div class="flex items-center gap-3 mb-8">
+                <div
+                    class="flex items-center gap-3 mb-8 justify-center lg:justify-start"
+                >
                     <span class="w-2 h-2 bg-accent animate-pulse"></span>
                     <span class="text-xs uppercase tracking-[0.2em] text-muted"
                         >Premium Software Solutions</span
@@ -27,12 +32,17 @@ const profileImage = "https://youssef.tn/ysf.webp";
                 <!-- Main Headline -->
                 <h1 class="display-xl mb-6">
                     <span class="block">Software</span>
-                    <span class="block text-outline">Solutions</span>
+                    <span class="text-outline-hover">
+                        <span class="outline-text">Solutions</span>
+                        <span class="filled-text" aria-hidden="true"
+                            >Solutions</span
+                        >
+                    </span>
                 </h1>
 
                 <!-- Subheadline -->
                 <p
-                    class="text-xl md:text-2xl text-muted max-w-xl mb-12 leading-relaxed"
+                    class="text-xl md:text-2xl text-muted max-w-xl mb-12 leading-relaxed mx-auto lg:mx-0"
                 >
                     Ready-to-use applications, APIs, and AI-powered tools.
                     <span class="text-white">Built to scale your business.</span
@@ -40,7 +50,9 @@ const profileImage = "https://youssef.tn/ysf.webp";
                 </p>
 
                 <!-- CTA Button -->
-                <div class="flex flex-wrap gap-4">
+                <div
+                    class="flex flex-wrap gap-4 justify-center lg:justify-start"
+                >
                     <a
                         href="#services"
                         class="btn-primary"
@@ -90,9 +102,11 @@ const profileImage = "https://youssef.tn/ysf.webp";
                     <div
                         class="relative w-72 h-80 md:w-80 md:h-96 lg:w-96 lg:h-[28rem] overflow-hidden"
                     >
-                        <img
+                        <Image
                             src={profileImage}
                             alt="Youssef Dhibi"
+                            width={500}
+                            height={600}
                             class="w-full h-full object-cover object-top grayscale hover:grayscale-0 transition-all duration-500"
                             loading="eager"
                         />
@@ -119,9 +133,9 @@ const profileImage = "https://youssef.tn/ysf.webp";
         </div>
     </div>
 
-    <!-- Scroll Indicator -->
+    <!-- Scroll Indicator - Hidden on mobile -->
     <div
-        class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 scroll-indicator"
+        class="absolute bottom-8 left-1/2 -translate-x-1/2 hidden lg:flex flex-col items-center gap-2 scroll-indicator"
     >
         <span class="text-xs uppercase tracking-widest text-muted">Scroll</span>
         <svg

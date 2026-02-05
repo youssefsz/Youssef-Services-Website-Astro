@@ -7,6 +7,7 @@ import type { ImageMetadata } from 'astro';
 // Import service images for Astro optimization
 import invoxImage from '../assets/services/invox.png';
 import pdfImage from '../assets/services/pdf.png';
+import speedInsightImage from '../assets/services/speed-insight.png';
 
 export interface Service {
     title: string;
@@ -35,6 +36,15 @@ export const services: Service[] = [
         image: pdfImage,
         link: "https://pdf-tools.youssef.tn/",
         slug: "pdf-tools",
+    },
+    {
+        title: "Speed Insight",
+        description:
+            "Test your website performance with Google PageSpeed Insights API. Get detailed insights into Core Web Vitals and optimization recommendations.",
+        category: "Web Platform",
+        image: speedInsightImage,
+        link: "https://speed-insight.youssef.tn/",
+        slug: "speed-insight",
     },
 ];
 

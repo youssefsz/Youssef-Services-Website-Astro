@@ -31,7 +31,7 @@ export const services: Service[] = [
     {
         title: "PDF Tools",
         description:
-            "Free online PDF tools to convert, compress, and edit your PDF files. Convert PDFs to images, extract text, merge documents, and more — fast, secure, and completely free.",
+            "Free online PDF tools to convert, compress, and edit your PDF files. Convert PDFs to images, extract text, merge documents, and more. Fast, secure, and completely free.",
         category: "Web Platform",
         image: pdfImage,
         link: "https://pdf-tools.youssef.tn/",

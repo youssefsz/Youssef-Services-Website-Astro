@@ -1,50 +1,11 @@
 ---
 import ServiceCard from "./ServiceCard.astro";
+import { services, MAX_HOMEPAGE_SERVICES } from "../data/services";
 
-const services = [
-    {
-        title: "Web Applications",
-        description:
-            "Full-stack web platforms built with modern frameworks. Responsive, fast, and scalable solutions for your business needs.",
-        category: "Development",
-        icon: "code",
-    },
-    {
-        title: "Mobile Apps",
-        description:
-            "Native and cross-platform mobile applications for iOS and Android. Seamless user experiences on any device.",
-        category: "Mobile",
-        icon: "mobile",
-    },
-    {
-        title: "API Development",
-        description:
-            "Robust RESTful and GraphQL APIs. Secure, documented, and built for high performance and scalability.",
-        category: "Backend",
-        icon: "api",
-    },
-    {
-        title: "AI Integration",
-        description:
-            "Custom AI-powered solutions including chatbots, automation, and machine learning integrations.",
-        category: "AI / ML",
-        icon: "ai",
-    },
-    {
-        title: "Automation Tools",
-        description:
-            "Streamline your workflows with custom automation scripts, bots, and integration pipelines.",
-        category: "Automation",
-        icon: "automation",
-    },
-    {
-        title: "Cloud Solutions",
-        description:
-            "Cloud architecture, deployment, and DevOps services. AWS, GCP, and Azure expertise.",
-        category: "Infrastructure",
-        icon: "cloud",
-    },
-];
+// Show only up to MAX_HOMEPAGE_SERVICES on homepage
+const displayedServices = services.slice(0, MAX_HOMEPAGE_SERVICES);
+const hasMoreServices = services.length > MAX_HOMEPAGE_SERVICES;
+const remainingCount = services.length - MAX_HOMEPAGE_SERVICES;
 ---
 
 <section class="py-32 relative" id="services">
@@ -56,21 +17,19 @@ const services = [
         <div class="text-center mb-20">
             <div class="number-display mb-4">// 01</div>
             <h2 class="display-lg mb-6">
-                <span class="block">What I</span>
-                <span class="text-outline">Build</span>
+                <span class="block">My</span>
+                <span class="text-outline">Services</span>
             </h2>
             <p class="text-muted text-lg max-w-2xl mx-auto">
-                End-to-end software solutions designed to solve real problems
-                and drive business growth.
+                Premium software solutions ready to scale your business. Click
+                any service to learn more.
             </p>
         </div>
 
-        <!-- Services Grid -->
-        <div
-            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-white/5"
-        >
+        <!-- Services Grid - Modern Adaptive Layout -->
+        <div class="services-grid">
             {
-                services.map((service, index) => (
+                displayedServices.map((service, index) => (
                     <ServiceCard
                         title={service.title}
                         description={service.description}
@@ -82,30 +41,83 @@ const services = [
             }
         </div>
 
-        <!-- Bottom CTA -->
+        <!-- Show All Services Button (only if more than 6 services) -->
+        {
+            hasMoreServices && (
+                <div class="mt-12 text-center">
+                    <a href="/services" class="btn-secondary group">
+                        <span>
+                            Show All Services
+                            <span class="text-accent ml-1">
+                                (+{remainingCount} more)
+                            </span>
+                        </span>
+                        <svg
+                            class="w-4 h-4 transform group-hover:translate-x-1 transition-transform"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                stroke-linecap="square"
+                                stroke-width="2"
+                                d="M17 8l4 4m0 0l-4 4m4-4H3"
+                            />
+                        </svg>
+                    </a>
+                </div>
+            )
+        }
+
+        <!-- Bottom Note -->
         <div
             class="mt-16 pt-16 border-t border-white/5 flex flex-col items-center text-center gap-6"
         >
             <p class="text-muted">
-                Don't see what you need? <span class="text-white"
-                    >I build custom solutions.</span
-                >
+                Each service has its own dedicated page with
+                <span class="text-white">full details and pricing.</span>
             </p>
-            <a href="#contact" class="btn-secondary" id="services-cta">
-                <span>Discuss Your Project</span>
-                <svg
-                    class="w-4 h-4"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                >
-                    <path
-                        stroke-linecap="square"
-                        stroke-linejoin="miter"
-                        stroke-width="2"
-                        d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                </svg>
-            </a>
         </div>
     </div>
 </section>
+
+<style>
+    /* 
+     * Modern Adaptive Grid (2026 Best Practice)
+     * Uses auto-fit + minmax for truly responsive layouts
+     * Works beautifully with any number of items
+     */
+    .services-grid {
+        display: grid;
+        gap: 1px;
+        background-color: rgba(255, 255, 255, 0.05);
+
+        /* 
+         * auto-fit: Creates as many columns as will fit
+         * minmax(min(100%, 340px), 1fr): 
+         *   - Items are at least 340px (or 100% on small screens)
+         *   - Items grow equally to fill available space
+         */
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
+    }
+
+    /* 
+     * For larger screens, enforce 3-column layout for visual consistency
+     * This prevents awkward 4 or 5 column layouts on ultra-wide screens
+     */
+    @media (min-width: 1024px) {
+        .services-grid {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+    /* 
+     * Center items when there are fewer than a full row
+     * This is achieved through container queries in modern CSS
+     */
+    @container (max-width: 680px) {
+        .services-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>

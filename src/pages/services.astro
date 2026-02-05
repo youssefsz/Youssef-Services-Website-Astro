@@ -1,0 +1,154 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Footer from "../components/Footer.astro";
+import ServiceCard from "../components/ServiceCard.astro";
+import { services } from "../data/services";
+---
+
+<Layout
+    title="All Services | Youssef Dhibi"
+    description="Explore all premium software development services - Web Applications, Mobile Apps, API Development, AI Integration, and more."
+>
+    <main class="min-h-screen">
+        <!-- Page Header -->
+        <section class="pt-24 pb-16 relative">
+            <div class="absolute inset-0 grid-bg opacity-20"></div>
+
+            <div class="container-main relative z-10">
+                <!-- Back Link - Top Left, Visible -->
+                <a
+                    href="/"
+                    class="inline-flex items-center gap-2 text-muted text-sm hover:text-accent transition-colors mb-12 group"
+                >
+                    <svg
+                        class="w-4 h-4 transform group-hover:-translate-x-1 transition-transform"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                    >
+                        <path
+                            stroke-linecap="square"
+                            stroke-width="2"
+                            d="M15 19l-7-7 7-7"></path>
+                    </svg>
+                    <span>Back to Home</span>
+                </a>
+
+                <!-- Centered Header Content - Bold & Impactful -->
+                <div class="text-center">
+                    <div class="number-display mb-4">
+                        // {services.length} Services Available
+                    </div>
+                    <h1 class="display-lg mb-6">
+                        <span class="block">All</span>
+                        <span class="text-outline">Services</span>
+                    </h1>
+                    <p class="text-muted text-lg max-w-2xl mx-auto">
+                        Premium software solutions ready to scale your business.
+                        Browse our complete catalog and find the perfect fit.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Grid Section - No divider needed, cleaner look -->
+        <section class="py-20 relative">
+            <div class="container-main relative z-10">
+                <!-- Services Grid - Adaptive layout -->
+                <div class="services-grid-full">
+                    {
+                        services.map((service, index) => (
+                            <ServiceCard
+                                title={service.title}
+                                description={service.description}
+                                category={service.category}
+                                icon={service.icon}
+                                index={index}
+                            />
+                        ))
+                    }
+                </div>
+
+                <!-- Stats/Summary -->
+                <div
+                    class="mt-20 pt-16 border-t border-white/5 grid grid-cols-1 md:grid-cols-3 gap-8 text-center"
+                >
+                    <div>
+                        <div class="text-4xl font-display font-bold mb-2">
+                            {services.length}
+                        </div>
+                        <div
+                            class="text-muted text-sm uppercase tracking-widest"
+                        >
+                            Services Available
+                        </div>
+                    </div>
+                    <div>
+                        <div class="text-4xl font-display font-bold mb-2">
+                            24/7
+                        </div>
+                        <div
+                            class="text-muted text-sm uppercase tracking-widest"
+                        >
+                            Support Available
+                        </div>
+                    </div>
+                    <div>
+                        <div class="text-4xl font-display font-bold mb-2">
+                            100%
+                        </div>
+                        <div
+                            class="text-muted text-sm uppercase tracking-widest"
+                        >
+                            Custom Solutions
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CTA Section -->
+                <div class="mt-16 text-center">
+                    <p class="text-muted mb-6">
+                        Ready to get started? Let's discuss your project.
+                    </p>
+                    <a href="/#contact" class="btn-primary">
+                        <span>Get in Touch</span>
+                        <svg
+                            class="w-4 h-4"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                stroke-linecap="square"
+                                stroke-width="2"
+                                d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <Footer />
+</Layout>
+
+<style>
+    /* Adaptive grid that looks perfect with any number of items */
+    .services-grid-full {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
+        gap: 1px;
+        background-color: rgba(255, 255, 255, 0.05);
+    }
+
+    /* When there are few items, center them beautifully */
+    @media (min-width: 1024px) {
+        .services-grid-full {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+    .font-display {
+        font-family: var(--font-display);
+    }
+</style>

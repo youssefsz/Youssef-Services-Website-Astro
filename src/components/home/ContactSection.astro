@@ -35,7 +35,7 @@ const portfolioUrl = "https://youssef.tn";
         </div>
 
         <!-- Contact CTAs -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
             <!-- Email CTA -->
             <BlurFade client:load delay={0.3} yOffset={20} className="h-full">
                 <a
@@ -64,7 +64,7 @@ const portfolioUrl = "https://youssef.tn";
                         Email
                     </div>
                     <div
-                        class="text-white font-medium group-hover:text-accent transition-colors"
+                        class="text-white font-medium group-hover:text-accent transition-colors break-all"
                     >
                         {email}
                     </div>
@@ -107,12 +107,17 @@ const portfolioUrl = "https://youssef.tn";
             </BlurFade>
 
             <!-- Portfolio CTA -->
-            <BlurFade client:load delay={0.5} yOffset={20} className="h-full">
+            <BlurFade
+                client:load
+                delay={0.5}
+                yOffset={20}
+                className="h-full col-span-2 md:col-span-1 flex justify-center"
+            >
                 <a
                     href={portfolioUrl}
                     target="_blank"
                     rel="noopener"
-                    class="contact-card group h-full"
+                    class="contact-card group h-full w-full md:w-full max-md:max-w-[calc(50%-0.5rem)]"
                     id="contact-portfolio"
                 >
                     <div class="contact-icon">
@@ -175,6 +180,12 @@ const portfolioUrl = "https://youssef.tn";
         background: var(--card);
         border: 1px solid rgba(255, 255, 255, 0.05);
         transition: all 0.3s ease;
+    }
+
+    @media (max-width: 640px) {
+        .contact-card {
+            padding: 2rem 1rem;
+        }
     }
 
     .contact-card:hover {

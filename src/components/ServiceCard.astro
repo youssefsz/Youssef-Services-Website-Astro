@@ -14,7 +14,7 @@ interface Props {
 const { title, description, category, image, link, index = 0 } = Astro.props;
 ---
 
-<article class="service-card group" style={`animation-delay: ${index * 0.1}s`}>
+<article class="service-card group">
     <!-- Image Container -->
     <div class="image-container">
         <Image src={image} alt={title} class="service-image" />

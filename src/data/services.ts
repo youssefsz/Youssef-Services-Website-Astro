@@ -8,6 +8,7 @@ import type { ImageMetadata } from 'astro';
 import invoxImage from '../assets/services/invox.png';
 import pdfImage from '../assets/services/pdf.png';
 import speedInsightImage from '../assets/services/speed-insight.png';
+import planGptImage from '../assets/services/plan-gpt.png';
 
 export interface Service {
     title: string;
@@ -29,6 +30,17 @@ export const services: Service[] = [
         slug: "invox",
     },
     {
+        title: "PlanGPT",
+        description:
+            "Transform simple prompts into powerful, detailed instructions for AI. Access curated templates and enhance your AI workflow.",
+        category: "Mobile App",
+        image: planGptImage,
+        link: "https://youssef.tn/plangpt/",
+        slug: "plangpt",
+    },
+
+    /*
+    {
         title: "PDF Tools",
         description:
             "Free online PDF tools to convert, compress, and edit your PDF files. Convert PDFs to images, extract text, merge documents, and more. Fast, secure, and completely free.",
@@ -46,6 +58,7 @@ export const services: Service[] = [
         link: "https://speed-insight.youssef.tn/",
         slug: "speed-insight",
     },
+    */
 ];
 
 // Maximum services to show on homepage

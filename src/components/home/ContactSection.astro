@@ -177,8 +177,12 @@ const portfolioUrl = "https://youssef.tn";
         align-items: center;
         text-align: center;
         padding: 2.5rem 2rem;
-        background: var(--card);
-        border: 1px solid rgba(255, 255, 255, 0.05);
+        background: linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.08) 0%,
+            rgba(255, 255, 255, 0.04) 100%
+        );
+        border: 1px solid rgba(255, 255, 255, 0.12);
         transition: all 0.3s ease;
     }
 
@@ -189,8 +193,12 @@ const portfolioUrl = "https://youssef.tn";
     }
 
     .contact-card:hover {
-        border-color: rgba(255, 255, 255, 0.1);
-        background: rgba(255, 255, 255, 0.02);
+        background: linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.12) 0%,
+            rgba(255, 255, 255, 0.06) 100%
+        );
+        border-color: rgba(255, 255, 255, 0.25);
     }
 
     .contact-icon {

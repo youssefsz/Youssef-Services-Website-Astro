@@ -1,5 +1,6 @@
-/* Custom Fonts - Modern & Bold (must be first) */
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+/* Custom Fonts - Modern & Bold */
+@import "@fontsource-variable/space-grotesk";
+@import "@fontsource-variable/inter";
 
 @import "tailwindcss";
 @import "tw-animate-css";
@@ -90,8 +91,8 @@
   --destructive: #ef4444;
 
   /* Font Families */
-  --font-display: 'Space Grotesk', system-ui, sans-serif;
-  --font-body: 'Inter', system-ui, sans-serif;
+  --font-display: 'Space Grotesk Variable', system-ui, sans-serif;
+  --font-body: 'Inter Variable', system-ui, sans-serif;
 
   /* Grid line color */
   --grid-line: rgba(255, 255, 255, 0.03);

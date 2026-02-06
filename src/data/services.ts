@@ -39,7 +39,7 @@ export const services: Service[] = [
         slug: "plangpt",
     },
 
-    /*
+    
     {
         title: "PDF Tools",
         description:
@@ -49,6 +49,7 @@ export const services: Service[] = [
         link: "https://pdf-tools.youssef.tn/",
         slug: "pdf-tools",
     },
+    /*
     {
         title: "Speed Insight",
         description:

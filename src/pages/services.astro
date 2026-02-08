@@ -69,6 +69,17 @@ import BlurFade from "../components/animations/BlurFade";
         <!-- Services Grid Section - No divider needed, cleaner look -->
         <section class="py-20 relative">
             <div class="container-main relative z-10">
+                <noscript>
+                    <div class="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+                        {services.map((service) => (
+                            <div class="p-6 border rounded-lg">
+                                <h2 class="text-xl font-bold mb-2"><a href={service.link}>{service.title}</a></h2>
+                                <p class="mb-4">{service.description}</p>
+                                <span class="text-sm text-gray-500">{service.category}</span>
+                            </div>
+                        ))}
+                    </div>
+                </noscript>
                 <!-- Services Grid - Adaptive layout -->
                 <div class="services-grid-full">
                     {

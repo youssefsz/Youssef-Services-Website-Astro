@@ -42,6 +42,17 @@ const remainingCount = services.length - MAX_HOMEPAGE_SERVICES;
         </div>
 
         <!-- Services Grid - Modern Adaptive Layout -->
+        <noscript>
+            <div class="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-8">
+                {displayedServices.map((service) => (
+                    <div class="p-6 border rounded-lg">
+                        <h3 class="text-xl font-bold mb-2"><a href={service.link}>{service.title}</a></h3>
+                        <p class="mb-4">{service.description}</p>
+                        <span class="text-sm text-gray-500">{service.category}</span>
+                    </div>
+                ))}
+            </div>
+        </noscript>
         <div class="services-grid">
             {
                 displayedServices.map((service, index) => (

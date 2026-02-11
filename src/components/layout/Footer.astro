@@ -3,12 +3,12 @@ const currentYear = new Date().getFullYear();
 import BlurFade from "../animations/BlurFade";
 ---
 
-<footer class="py-20 relative border-t border-white/5">
+<footer class="py-16 relative border-t-2 border-border bg-background">
     <div class="container-main">
         <!-- Centered Large Name with Hover Effect -->
         <div class="text-center mb-12">
             <BlurFade client:visible delay={200} yOffset={20}>
-                <h2 class="display-xl inline-block footer-name">
+                <h2 class="display-xl inline-block footer-name text-foreground">
                     <!-- First name with smooth transition using global hover class -->
                     <span class="text-outline-hover">
                         <span class="outline-text">Youssef</span>
@@ -28,7 +28,7 @@ import BlurFade from "../animations/BlurFade";
                 href="https://github.com/youssefsz"
                 target="_blank"
                 rel="noopener"
-                class="w-12 h-12 border border-white/10 flex items-center justify-center hover:border-accent hover:text-accent transition-all duration-200"
+                class="btn-social"
                 aria-label="GitHub"
             >
                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -43,7 +43,7 @@ import BlurFade from "../animations/BlurFade";
                 href="https://linkedin.com/in/youssefsz"
                 target="_blank"
                 rel="noopener"
-                class="w-12 h-12 border border-white/10 flex items-center justify-center hover:border-accent hover:text-accent transition-all duration-200"
+                class="btn-social"
                 aria-label="LinkedIn"
             >
                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -58,7 +58,7 @@ import BlurFade from "../animations/BlurFade";
                 href="https://www.facebook.com/youssefszz"
                 target="_blank"
                 rel="noopener"
-                class="w-12 h-12 border border-white/10 flex items-center justify-center hover:border-accent hover:text-accent transition-all duration-200"
+                class="btn-social"
                 aria-label="Facebook"
             >
                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -73,7 +73,7 @@ import BlurFade from "../animations/BlurFade";
                 href="https://apps.apple.com/us/developer/youssef-dhibi/id1855868676"
                 target="_blank"
                 rel="noopener"
-                class="w-12 h-12 border border-white/10 flex items-center justify-center hover:border-accent hover:text-accent transition-all duration-200"
+                class="btn-social"
                 aria-label="Apple Developer"
             >
                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 384 512">
@@ -86,7 +86,7 @@ import BlurFade from "../animations/BlurFade";
 
         <!-- Copyright -->
         <div class="text-center">
-            <p class="text-xs text-muted">
+            <p class="text-xs text-muted-foreground font-bold uppercase tracking-widest">
                 © {currentYear} Youssef Dhibi. All rights reserved.
             </p>
         </div>

@@ -10,18 +10,18 @@ const hasMoreServices = services.length > MAX_HOMEPAGE_SERVICES;
 const remainingCount = services.length - MAX_HOMEPAGE_SERVICES;
 ---
 
-<section class="py-32 relative" id="services">
+<section class="py-16 relative bg-background" id="services">
     <!-- Section Background -->
-    <div class="absolute inset-0 grid-bg opacity-30"></div>
+    <div class="absolute inset-0 grid-bg opacity-100 pointer-events-none"></div>
 
     <div class="container-main relative z-10">
         <!-- Section Header - Centered -->
-        <div class="text-center mb-20 flex flex-col items-center">
+        <div class="text-center mb-12 flex flex-col items-center">
             <BlurFade client:load delay={0} yOffset={20}>
-                <div class="number-display mb-4">// 01</div>
+                <div class="number-display mb-4 text-foreground font-bold text-xl border-2 border-border px-4 py-2 bg-background box-shadow-hard inline-block">01</div>
             </BlurFade>
 
-            <h2 class="display-lg mb-6">
+            <h2 class="display-lg mb-6 text-foreground">
                 <BlurFade client:load delay={200} yOffset={20}>
                     <span class="block">My</span>
                     <span class="text-outline-hover">
@@ -34,7 +34,7 @@ const remainingCount = services.length - MAX_HOMEPAGE_SERVICES;
             </h2>
 
             <BlurFade client:load delay={400} yOffset={20}>
-                <p class="text-muted text-lg max-w-2xl mx-auto">
+                <p class="text-foreground text-lg max-w-2xl mx-auto font-medium">
                     Premium software solutions ready to scale your business.
                     Click any service to learn more.
                 </p>

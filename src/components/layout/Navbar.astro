@@ -4,7 +4,7 @@ import Logo from "./Logo.astro";
 ---
 
 <nav
-    class="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-white/5"
+    class="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b-2 border-border"
 >
     <div class="container-main">
         <div class="flex items-center justify-between h-20">
@@ -47,76 +47,148 @@ import Logo from "./Logo.astro";
 
             <!-- Mobile Menu Button -->
             <button
-                class="md:hidden w-10 h-10 flex items-center justify-center border border-white/10"
+                class="md:hidden w-10 h-10 flex items-center justify-center border-2 border-border hover:bg-foreground hover:text-background transition-colors"
                 id="mobile-menu-btn"
                 aria-label="Toggle menu"
             >
                 <div class="space-y-1.5">
                     <span
-                        class="block w-5 h-0.5 bg-white transition-all"
+                        class="block w-5 h-0.5 bg-current transition-all"
                         id="menu-line-1"></span>
                     <span
-                        class="block w-5 h-0.5 bg-white transition-all"
+                        class="block w-5 h-0.5 bg-current transition-all"
                         id="menu-line-2"></span>
                 </div>
             </button>
         </div>
     </div>
+</nav>
 
-    <!-- Mobile Menu -->
-    <div
-        class="md:hidden hidden absolute top-full left-0 right-0 bg-black border-b border-white/5"
-        id="mobile-menu"
-    >
-        <div class="container-main py-8 space-y-6">
-            <a
-                href="#services"
-                class="block text-lg uppercase tracking-wider font-medium text-muted hover:text-white transition-colors"
+<!-- Mobile Menu - Side Drawer -->
+<div
+    class="md:hidden fixed inset-0 z-[60] pointer-events-none"
+    id="mobile-menu-container"
+>
+        <!-- Backdrop -->
+        <div 
+            class="absolute inset-0 bg-black/50 opacity-0 transition-opacity duration-300 ease-in-out pointer-events-none"
+            id="mobile-menu-backdrop"
+        ></div>
+
+        <!-- Drawer -->
+        <div
+            class="absolute top-0 right-0 h-full w-[85%] max-w-sm bg-background border-l-2 border-border transform translate-x-full transition-transform duration-300 ease-in-out pointer-events-auto flex flex-col"
+            id="mobile-menu"
+        >
+            <!-- Grid Background -->
+            <div class="absolute inset-0 grid-bg opacity-50 pointer-events-none"></div>
+
+            <!-- Close Button -->
+            <button
+                class="absolute top-5 left-5 w-10 h-10 flex items-center justify-center border-2 border-border hover:bg-foreground hover:text-background transition-colors z-50 bg-background"
+                id="mobile-menu-close"
+                aria-label="Close menu"
             >
-                Services
-            </a>
-            <a
-                href="#contact"
-                class="block text-lg uppercase tracking-wider font-medium text-muted hover:text-white transition-colors"
-            >
-                Contact
-            </a>
-            <a href="#services" class="btn-primary w-full text-center mt-4">
-                Explore Services
-            </a>
+                <svg
+                    class="w-6 h-6"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                >
+                    <path
+                        stroke-linecap="square"
+                        stroke-linejoin="miter"
+                        stroke-width="2"
+                        d="M6 18L18 6M6 6l12 12"
+                    ></path>
+                </svg>
+            </button>
+
+            <div class="relative z-10 flex flex-col h-full pt-24 pb-8 px-6">
+                <nav class="flex flex-col gap-6">
+                    <a
+                        href="/"
+                        class="mobile-menu-link block text-4xl font-black uppercase tracking-tighter text-foreground hover:text-accent transition-colors border-b-2 border-border pb-4"
+                    >
+                        Home
+                    </a>
+                    <a
+                        href="#services"
+                        class="mobile-menu-link block text-4xl font-black uppercase tracking-tighter text-foreground hover:text-accent transition-colors border-b-2 border-border pb-4"
+                    >
+                        Services
+                    </a>
+                    <a
+                        href="#contact"
+                        class="mobile-menu-link block text-4xl font-black uppercase tracking-tighter text-foreground hover:text-accent transition-colors border-b-2 border-border pb-4"
+                    >
+                        Contact
+                    </a>
+                </nav>
+
+                <div class="mt-auto">
+                    <a href="#services" class="btn-primary w-full text-center text-lg py-4 mb-6">
+                        Explore Services
+                    </a>
+                    
+                    <div class="text-xs font-bold uppercase tracking-widest text-muted-foreground text-center">
+                        © {new Date().getFullYear()} Youssef Dhibi
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-</nav>
+</div>
 
 <script>
     const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+    const mobileMenuCloseBtn = document.getElementById("mobile-menu-close");
     const mobileMenu = document.getElementById("mobile-menu");
+    const mobileMenuBackdrop = document.getElementById("mobile-menu-backdrop");
+    const mobileMenuContainer = document.getElementById("mobile-menu-container");
     const menuLine1 = document.getElementById("menu-line-1");
     const menuLine2 = document.getElementById("menu-line-2");
 
     let isOpen = false;
 
-    mobileMenuBtn?.addEventListener("click", () => {
+    function toggleMenu() {
         isOpen = !isOpen;
-        mobileMenu?.classList.toggle("hidden", !isOpen);
-
+        
+        // Toggle Menu Styles
         if (isOpen) {
+            mobileMenu?.classList.remove("translate-x-full");
+            mobileMenuBackdrop?.classList.remove("opacity-0", "pointer-events-none");
+            mobileMenuContainer?.classList.remove("pointer-events-none");
+            
+            // Animate Button
             menuLine1?.classList.add("rotate-45", "translate-y-1");
             menuLine2?.classList.add("-rotate-45", "-translate-y-1");
+            
+            // Prevent body scroll
+            document.body.style.overflow = "hidden";
         } else {
+            mobileMenu?.classList.add("translate-x-full");
+            mobileMenuBackdrop?.classList.add("opacity-0", "pointer-events-none");
+            mobileMenuContainer?.classList.add("pointer-events-none");
+            
+            // Reset Button
             menuLine1?.classList.remove("rotate-45", "translate-y-1");
             menuLine2?.classList.remove("-rotate-45", "-translate-y-1");
+            
+            // Enable body scroll
+            document.body.style.overflow = "";
         }
-    });
+    }
+
+    mobileMenuBtn?.addEventListener("click", toggleMenu);
+    mobileMenuCloseBtn?.addEventListener("click", toggleMenu);
+    mobileMenuBackdrop?.addEventListener("click", toggleMenu);
 
     // Close mobile menu when clicking a link
     const mobileLinks = mobileMenu?.querySelectorAll("a");
     mobileLinks?.forEach((link) => {
         link.addEventListener("click", () => {
-            mobileMenu?.classList.add("hidden");
-            isOpen = false;
-            menuLine1?.classList.remove("rotate-45", "translate-y-1");
-            menuLine2?.classList.remove("-rotate-45", "-translate-y-1");
+            if (isOpen) toggleMenu();
         });
     });
 </script>

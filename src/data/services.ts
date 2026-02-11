@@ -9,6 +9,7 @@ import invoxImage from '../assets/services/invox.png';
 import pdfImage from '../assets/services/pdf.png';
 import speedInsightImage from '../assets/services/speed-insight.png';
 import planGptImage from '../assets/services/plan-gpt.png';
+import chatBotApiImage from '../assets/services/chat-bot-api.png';
 
 export interface Service {
     title: string;
@@ -29,6 +30,8 @@ export const services: Service[] = [
         link: "https://youssef.tn/invox/",
         slug: "invox",
     },
+    
+    /*
     {
         title: "PlanGPT",
         description:
@@ -38,6 +41,7 @@ export const services: Service[] = [
         link: "https://youssef.tn/plangpt/",
         slug: "plangpt",
     },
+    */
 
     
     {
@@ -48,6 +52,15 @@ export const services: Service[] = [
         image: pdfImage,
         link: "https://pdf-tools.youssef.tn/",
         slug: "pdf-tools",
+    },
+    {
+        title: "Chat API",
+        description:
+            "A powerful AI chat API built for developers. Integrate intelligent conversations into your applications with ease.",
+        category: "Web Platform",
+        image: chatBotApiImage,
+        link: "https://chat-bot-ysf-api.vercel.app/",
+        slug: "chat-api",
     },
     /*
     {

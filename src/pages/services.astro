@@ -10,17 +10,17 @@ import BlurFade from "../components/animations/BlurFade";
     title="All Services | Youssef Dhibi"
     description="Explore all premium software development services - Web Applications, Mobile Apps, API Development, AI Integration, and more."
 >
-    <main class="min-h-screen">
+    <main class="min-h-screen bg-background">
         <!-- Page Header -->
         <section class="pt-24 pb-16 relative">
-            <div class="absolute inset-0 grid-bg opacity-20"></div>
+            <div class="absolute inset-0 grid-bg opacity-100 pointer-events-none"></div>
 
             <div class="container-main relative z-10">
                 <!-- Back Link - Top Left, Visible -->
                 <BlurFade client:load delay={0} yOffset={20}>
                     <a
                         href="/"
-                        class="inline-flex items-center gap-2 text-muted text-sm hover:text-accent transition-colors mb-12 group"
+                        class="inline-flex items-center gap-2 text-foreground font-bold text-sm hover:underline hover:decoration-2 transition-all mb-12 group"
                     >
                         <svg
                             class="w-4 h-4 transform group-hover:-translate-x-1 transition-transform"
@@ -40,11 +40,11 @@ import BlurFade from "../components/animations/BlurFade";
                 <!-- Centered Header Content - Bold & Impactful -->
                 <div class="text-center">
                     <BlurFade client:load delay={100} yOffset={20}>
-                        <div class="number-display mb-4">
+                        <div class="number-display mb-4 text-foreground font-bold text-lg border-2 border-border px-4 py-2 bg-background box-shadow-hard inline-block">
                             // {services.length} Services Available
                         </div>
                     </BlurFade>
-                    <h1 class="display-lg mb-6">
+                    <h1 class="display-lg mb-6 text-foreground">
                         <BlurFade client:load delay={200} yOffset={20}>
                             <span class="block">All</span>
                             <span class="text-outline-hover">
@@ -56,7 +56,7 @@ import BlurFade from "../components/animations/BlurFade";
                         </BlurFade>
                     </h1>
                     <BlurFade client:load delay={300} yOffset={20}>
-                        <p class="text-muted text-lg max-w-2xl mx-auto">
+                        <p class="text-foreground font-medium text-lg max-w-2xl mx-auto">
                             Premium software solutions ready to scale your
                             business. Browse our complete catalog and find the
                             perfect fit.

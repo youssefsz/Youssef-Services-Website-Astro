@@ -39,18 +39,20 @@ const pageDescription =
 
 	/* Hide scrollbar but keep functionality */
 	::-webkit-scrollbar {
-		width: 6px;
+		width: 10px;
 	}
 
 	::-webkit-scrollbar-track {
-		background: #000;
+		background: var(--background);
+		border-left: 2px solid var(--border);
 	}
 
 	::-webkit-scrollbar-thumb {
-		background: rgba(255, 255, 255, 0.1);
+		background: var(--foreground);
+		border: 2px solid var(--background);
 	}
 
 	::-webkit-scrollbar-thumb:hover {
-		background: rgba(255, 255, 255, 0.2);
+		background: var(--accent);
 	}
 </style>

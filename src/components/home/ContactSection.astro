@@ -7,15 +7,15 @@ const phone = "+216 27 084 318";
 const portfolioUrl = "https://youssef.tn";
 ---
 
-<section class="py-32 relative" id="contact">
+<section class="py-16 relative bg-background" id="contact">
     <div class="container-main relative z-10">
         <!-- Section Header - Centered -->
-        <div class="text-center mb-16 flex flex-col items-center">
+        <div class="text-center mb-12 flex flex-col items-center">
             <BlurFade client:load delay={0} yOffset={20}>
-                <div class="number-display mb-4">// 02</div>
+                <div class="number-display mb-4 text-foreground font-bold text-xl border-2 border-border px-4 py-2 bg-background box-shadow-hard inline-block">02</div>
             </BlurFade>
 
-            <h2 class="display-lg mb-6">
+            <h2 class="display-lg mb-6 text-foreground">
                 <BlurFade client:load delay={200} yOffset={20}>
                     <span class="block">Get In</span>
                     <span class="text-outline-hover">
@@ -27,7 +27,7 @@ const portfolioUrl = "https://youssef.tn";
             </h2>
 
             <BlurFade client:load delay={400} yOffset={20}>
-                <p class="text-muted text-lg max-w-xl mx-auto">
+                <p class="text-foreground text-lg max-w-xl mx-auto font-medium">
                     Ready to get started? Reach out through any of these
                     channels.
                 </p>
@@ -45,7 +45,7 @@ const portfolioUrl = "https://youssef.tn";
                 >
                     <div class="contact-icon">
                         <svg
-                            class="w-6 h-6"
+                            class="w-6 h-6 text-foreground"
                             fill="none"
                             stroke="currentColor"
                             viewBox="0 0 24 24"
@@ -59,18 +59,18 @@ const portfolioUrl = "https://youssef.tn";
                         </svg>
                     </div>
                     <div
-                        class="text-xs uppercase tracking-wider text-muted mb-2"
+                        class="text-xs uppercase tracking-wider text-muted-foreground font-bold mb-2"
                     >
                         Email
                     </div>
                     <div
-                        class="text-white font-medium group-hover:text-accent transition-colors break-all"
+                        class="text-foreground font-bold group-hover:text-accent transition-colors break-all"
                     >
                         {email}
                     </div>
                 </a>
             </BlurFade>
-
+            
             <!-- Phone CTA -->
             <BlurFade client:load delay={0.4} yOffset={20} className="h-full">
                 <a
@@ -80,7 +80,7 @@ const portfolioUrl = "https://youssef.tn";
                 >
                     <div class="contact-icon">
                         <svg
-                            class="w-6 h-6"
+                            class="w-6 h-6 text-foreground"
                             fill="none"
                             stroke="currentColor"
                             viewBox="0 0 24 24"
@@ -94,12 +94,12 @@ const portfolioUrl = "https://youssef.tn";
                         </svg>
                     </div>
                     <div
-                        class="text-xs uppercase tracking-wider text-muted mb-2"
+                        class="text-xs uppercase tracking-wider text-muted-foreground font-bold mb-2"
                     >
                         Phone
                     </div>
                     <div
-                        class="text-white font-medium group-hover:text-accent transition-colors"
+                        class="text-foreground font-bold group-hover:text-accent transition-colors"
                     >
                         {phone}
                     </div>
@@ -122,7 +122,7 @@ const portfolioUrl = "https://youssef.tn";
                 >
                     <div class="contact-icon">
                         <svg
-                            class="w-6 h-6"
+                            class="w-6 h-6 text-foreground"
                             fill="none"
                             stroke="currentColor"
                             viewBox="0 0 24 24"
@@ -136,12 +136,12 @@ const portfolioUrl = "https://youssef.tn";
                         </svg>
                     </div>
                     <div
-                        class="text-xs uppercase tracking-wider text-muted mb-2"
+                        class="text-xs uppercase tracking-wider text-muted-foreground font-bold mb-2"
                     >
                         Portfolio
                     </div>
                     <div
-                        class="text-white font-medium group-hover:text-accent transition-colors flex items-center gap-2"
+                        class="text-foreground font-bold group-hover:text-accent transition-colors flex items-center gap-2"
                     >
                         Visit Website
                         <svg
@@ -165,7 +165,7 @@ const portfolioUrl = "https://youssef.tn";
 
     <!-- Background Decoration -->
     <div
-        class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"
+        class="absolute bottom-0 left-0 right-0 h-px bg-border"
     >
     </div>
 </section>
@@ -177,13 +177,10 @@ const portfolioUrl = "https://youssef.tn";
         align-items: center;
         text-align: center;
         padding: 2.5rem 2rem;
-        background: linear-gradient(
-            135deg,
-            rgba(255, 255, 255, 0.08) 0%,
-            rgba(255, 255, 255, 0.04) 100%
-        );
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        transition: all 0.3s ease;
+        background: var(--card);
+        border: 2px solid var(--border);
+        transition: all 0.2s ease;
+        box-shadow: 4px 4px 0 0 var(--foreground);
     }
 
     @media (max-width: 640px) {
@@ -193,12 +190,8 @@ const portfolioUrl = "https://youssef.tn";
     }
 
     .contact-card:hover {
-        background: linear-gradient(
-            135deg,
-            rgba(255, 255, 255, 0.12) 0%,
-            rgba(255, 255, 255, 0.06) 100%
-        );
-        border-color: rgba(255, 255, 255, 0.25);
+        transform: translate(-4px, -4px);
+        box-shadow: 8px 8px 0 0 var(--foreground);
     }
 
     .contact-icon {

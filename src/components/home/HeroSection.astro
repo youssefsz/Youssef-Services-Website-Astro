@@ -7,7 +7,7 @@ const profileImage = "https://youssef.tn/ysf.webp";
 ---
 
 <section
-    class="relative lg:min-h-screen flex items-center pt-32 pb-20 lg:py-20 overflow-hidden"
+    class="relative lg:min-h-screen flex items-center pt-28 pb-10 lg:pt-32 lg:pb-10 overflow-hidden"
     id="hero"
 >
     <!-- Grid Background -->
@@ -26,18 +26,20 @@ const profileImage = "https://youssef.tn/ysf.webp";
                     <div
                         class="flex items-center gap-3 justify-center lg:justify-start"
                     >
-                        <span class="w-2 h-2 bg-accent animate-pulse"></span>
-                        <span
-                            class="text-xs uppercase tracking-[0.2em] text-muted"
-                            >Premium Software Solutions</span
-                        >
+                        <div class="px-4 py-2 bg-background border-2 border-border box-shadow-hard flex items-center gap-3">
+                            <span class="w-2 h-2 bg-accent animate-pulse"></span>
+                            <span
+                                class="text-xs uppercase tracking-[0.2em] text-foreground font-bold"
+                                >Premium Software Solutions</span
+                            >
+                        </div>
                     </div>
                 </BlurFade>
 
                 <!-- Main Headline -->
                 <noscript>
                     <h1 class="display-xl mb-6">Software Solutions</h1>
-                    <p class="text-xl md:text-2xl text-muted max-w-xl mb-12 leading-relaxed">
+                    <p class="text-xl md:text-2xl text-foreground max-w-xl mb-12 leading-relaxed font-medium">
                         Ready-to-use applications, APIs, and AI-powered tools. Built to scale your business.
                     </p>
                 </noscript>
@@ -72,7 +74,7 @@ const profileImage = "https://youssef.tn/ysf.webp";
                     client:load
                     delay={600}
                     yOffset={20}
-                    className="text-xl md:text-2xl text-muted max-w-xl mb-12 leading-relaxed mx-auto lg:mx-0 lg:justify-start justify-center text-center lg:text-left"
+                    className="text-xl md:text-2xl text-foreground font-medium max-w-xl mb-12 leading-relaxed mx-auto lg:mx-0 lg:justify-start justify-center text-center lg:text-left"
                 >
                     Ready-to-use applications, APIs, and AI-powered tools. Built
                     to scale your business.
@@ -125,24 +127,24 @@ const profileImage = "https://youssef.tn/ysf.webp";
                         </div>
 
                         <!-- Geometric Frame -->
-                        <div class="absolute -inset-4 border border-white/10">
+                        <div class="absolute -inset-4 border-2 border-border">
                         </div>
-                        <div class="absolute -inset-8 border border-white/5">
+                        <div class="absolute -inset-8 border-2 border-border opacity-50">
                         </div>
 
                         <!-- Blue Accent Corner -->
                         <div
-                            class="absolute -top-4 -left-4 w-8 h-8 border-t-2 border-l-2 border-accent"
+                            class="absolute -top-4 -left-4 w-8 h-8 border-t-4 border-l-4 border-accent"
                         >
                         </div>
                         <div
-                            class="absolute -bottom-4 -right-4 w-8 h-8 border-b-2 border-r-2 border-accent"
+                            class="absolute -bottom-4 -right-4 w-8 h-8 border-b-4 border-r-4 border-accent"
                         >
                         </div>
 
                         <!-- Image Container -->
                         <div
-                            class="relative w-72 h-80 md:w-80 md:h-96 lg:w-96 lg:h-[28rem] overflow-hidden"
+                            class="relative w-72 h-80 md:w-80 md:h-96 lg:w-96 lg:h-[28rem] overflow-hidden border-2 border-border"
                         >
                             <Image
                                 src={profileImage}
@@ -152,11 +154,6 @@ const profileImage = "https://youssef.tn/ysf.webp";
                                 class="w-full h-full object-cover object-top transition-all duration-500"
                                 loading="eager"
                             />
-                            <!-- Overlay -->
-                            <div
-                                class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"
-                            >
-                            </div>
                         </div>
 
                         <!-- Name Tag -->
@@ -164,10 +161,10 @@ const profileImage = "https://youssef.tn/ysf.webp";
                             class="absolute -bottom-6 left-0 right-0 flex justify-center"
                         >
                             <div
-                                class="px-6 py-3 bg-black border border-white/10"
+                                class="px-6 py-3 bg-background border-2 border-border box-shadow-hard"
                             >
                                 <span
-                                    class="text-xs uppercase tracking-[0.3em] text-muted"
+                                    class="text-xs uppercase tracking-[0.3em] text-foreground font-bold"
                                     >Youssef Dhibi</span
                                 >
                             </div>
@@ -182,9 +179,9 @@ const profileImage = "https://youssef.tn/ysf.webp";
     <div
         class="absolute bottom-8 left-1/2 -translate-x-1/2 hidden lg:flex flex-col items-center gap-2 scroll-indicator"
     >
-        <span class="text-xs uppercase tracking-widest text-muted">Scroll</span>
+        <span class="text-xs uppercase tracking-widest text-foreground font-bold">Scroll</span>
         <svg
-            class="w-4 h-4 text-muted"
+            class="w-4 h-4 text-foreground"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
